@@ -13,7 +13,7 @@ struct OldCar {
     5: optional i16 wheels = 4;
 }
 
-# New model
+# Good new model (this is forwards and backwards compatible with old model)
 
 enum NewFuel {
     gasoline = 0,
@@ -36,4 +36,16 @@ struct NewCar {
     7: optional i16 doors = 4;                  # New optional field with default value
     8: optional NewColorScheme color_scheme;    # New optional field using new structure
 }
+
+# Bad new model (this is not forwards and backwards compatible with old model)
+
+struct BadCar {
+    1: required string brand;
+    2: required string model;
+    3: required OldFuel fuel;
+    4: optional i16 weight;
+    5: optional i16 wheels = 4;
+    6: required i16 max_speed;                  # Required new field: NOT COMPATIBLE
+}
+
 
