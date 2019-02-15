@@ -140,8 +140,9 @@ def check_old_rx_bad():
             print("old car validation failed:", exception)
         else:
             print("old_car validation ok")
+
 if __name__ == "__main__":
     check_new_rx_old()
     check_old_rx_new()
     check_bad_rx_old()
-    check_old_rx_bad()    
+    check_old_rx_bad()
